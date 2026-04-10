@@ -23,6 +23,11 @@ Bot ini secara otomatis akan mengirimkan pesan ke channel yang dituju dengan int
 
 ⚠️ **PENTING:** Gunakan tombol **ikon copy** di pojok kanan atas kotak kode di bawah ini agar format teks tidak rusak (jangan di-*block* manual).
 
-**Untuk pengguna Termux (Android):**
+**Untuk**Untuk pengguna Termux (Android):**
 ```bash
-pkg update -y && pkg install git -y && git clone [https://github.com/Whyzfrsc7/autosend.git](https://github.com/Whyzfrsc7/autosend.git) && cd autosend && chmod +x run.sh && ./run.sh
+pkg update -y
+pkg install git -y
+git clone [https://github.com/Whyzfrsc7/autosend.git](https://github.com/Whyzfrsc7/autosend.git)
+cd autosend
+chmod +x run.sh
+./run.sh
