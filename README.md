@@ -27,7 +27,8 @@ Bot ini secara otomatis akan mengirimkan pesan ke channel yang dituju dengan int
 ```bash
 pkg update -y
 pkg install git -y
-git clone [https://github.com/Whyzfrsc7/autosend.git](https://github.com/Whyzfrsc7/autosend.git)
+mkdir autosend
 cd autosend
+git clone https://github.com/Whyzfrsc7/autosend.git 
 chmod +x run.sh
 ./run.sh
