@@ -17,7 +17,7 @@ const CHANNEL_ID = '1488936175187263649';
 
 // Pengaturan Cooldown (dalam milidetik)
 const DELAY_W = 62 * 1000;         // 1 menit 2 detik = 62 detik
-const DELAY_HU = 11 * 1000;        // 11 detik
+const DELAY_HU = 12 * 1000;        // 12 detik
 const DELAY_BATTLE = 138 * 1000;   // 2,3 menit = 138 detik
 
 const rl = readline.createInterface({
