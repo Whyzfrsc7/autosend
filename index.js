@@ -1,4 +1,4 @@
-const { Client } = require('discord.js-selfbot-v13');
+const { Client } = require('discord.js-selfbot-v13'); // Diperbaiki dari Const ke const
 const readline = require('readline');
 
 const client = new Client({
@@ -16,9 +16,9 @@ if (!TOKEN) {
 const CHANNEL_ID = '1488936175187263649';
 
 // Pengaturan Cooldown (dalam milidetik)
-const DELAY_W = 62 * 1000;         // 1 menit 2 detik = 62 detik
-const DELAY_HU = 12 * 1000;        // 12 detik
-const DELAY_BATTLE = 138 * 1000;   // 2,3 menit = 138 detik
+const DELAY_W = 62 * 1000;        // 62 detik
+const DELAY_HU = 12 * 1000;       // 12 detik
+const DELAY_BATTLE = 15 * 1000;   // 15 detik
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -43,20 +43,21 @@ client.on('ready', async () => {
   rl.question('Apakah channel ini sudah benar? (y/n): ', async (answer) => {
     if (answer.toLowerCase() === 'y') {
       console.log('Memulai proses auto-send (3 Timer Terpisah)...');
+      // Teks disesuaikan dengan variabel DELAY di atas
       console.log(`[Timer 1] !w             -> Setiap 62 detik`);
-      console.log(`[Timer 2] !hu            -> Setiap 11 detik`);
-      console.log(`[Timer 3] !battle random -> Setiap 138 detik`);
+      console.log(`[Timer 2] !hu            -> Setiap 12 detik`);
+      console.log(`[Timer 3] !br            -> Setiap 15 detik`);
       console.log(`-----------------------------------`);
 
-      // Eksekusi awal
+      // Eksekusi awal yang diberi jeda sedikit agar tidak spam sekaligus
       sendMsg(channel, '!w');
-      setTimeout(() => sendMsg(channel, '!hu'), 1500); 
-      setTimeout(() => sendMsg(channel, '!battle random'), 3000); 
+      setTimeout(() => sendMsg(channel, '!hu'), 1500);
+      setTimeout(() => sendMsg(channel, '!br'), 3000); // Disamakan menjadi !br
 
-      // Looping
+      // Looping interval
       setInterval(() => sendMsg(channel, '!w'), DELAY_W);
       setInterval(() => sendMsg(channel, '!hu'), DELAY_HU);
-      setInterval(() => sendMsg(channel, '!battle random'), DELAY_BATTLE);
+      setInterval(() => sendMsg(channel, '!br'), DELAY_BATTLE);
 
     } else {
       console.log('Dibatalkan.');
@@ -66,6 +67,7 @@ client.on('ready', async () => {
 });
 
 function sendMsg(channel, message) {
+  // Pengecekan standar
   const textChannel = channel.isVoice() ? channel : channel;
   textChannel.send(message)
     .then(() => console.log(`[${new Date().toLocaleTimeString()}] Berhasil kirim ${message}`))
@@ -73,4 +75,3 @@ function sendMsg(channel, message) {
 }
 
 client.login(TOKEN);
-
